@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>మన Kakinada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('file:///C:/Users/91939/Downloads/home.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: #d7d4d4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1{
+            margin-top: 50px;
+            font-size: 48px;
+        }
+
+        .orange {
+            color: orange;
+        }
+
+        .blue {
+            color: #007BFF;
+        }
+
+        .divisions-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px;
+        }
+
+        .left-side, .right-side {
+            width: 25%;
+        }
+
+        .division {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+            color: #0b0202;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mandal-list {
+            list-style: none;
+            padding-left: 0;
+            line-height: 1.8;
+            margin-top: 10px;
+            display: none;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .mandal-list li {
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1><span class="orange">మన</span> <span class="blue">Kakinada</span></h1>
+    
+
+    <div class="divisions-container">
+        <!-- Left Side: Division Titles -->
+        <div class="left-side">
+            <div class="division" onclick="toggleList('kakinada-list')">
+                <h4>Kakinada Division</h4>
+            </div>
+            <div class="division" onclick="toggleList('peddapuram-list')">
+                <h4>Peddapuram Division</h4>
+            </div>
+        </div>
+        <div class="right-side">
+            <ul class="mandal-list" id="kakinada-list">
+                <li>1. Samalkota </li>
+                <li>2. Pithapuram </li>
+                <li>3. Gollaprolu </li>
+                <li>4. U.Kothapalli </li>
+                <li>5. Karapa </li>
+                <li>6. Kakinada Rural </li>
+                <li>7. Kakinada Urban </li>
+                <li>8. Pedapudi </li>
+                <li>9. Tallarevu </li>
+                <li>10. Kajuluru </li>
+            </ul>
+            <ul class="mandal-list" id="peddapuram-list">
+                <li>1. Peddapuram </li>
+                <li>2. Jaggampeta </li>
+                <li>3. Gandepalle </li>
+                <li>4. Kirlampudi </li>
+                <li>5. Tuni </li>
+                <li>6. Kotananduru </li>
+                <li>7. Prathipadu </li>
+                <li>8. Sankhavaram </li>
+                <li>9. Yeleswaram </li>
+                <li>10. Rowthulapudi </li>
+                <li>11. Thondangi </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleList(id) {
+            const list = document.getElementById(id);
+            list.style.display = list.style.display === 'none' || list.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>

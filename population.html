@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>మన Kakinada</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: 
+        linear-gradient(to right, rgba(114, 171, 140, 0.85), rgba(255, 255, 255, 0.85)),
+        url('file:///C:/Users/91939/Downloads/p2.jpg'); /* Replace with your actual hosted image for online use */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #596c7e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+    }
+
+    .mana {
+      color: orange;
+    }
+
+    .kakinada {
+      color: #2980b9;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .item:hover {
+      background: #f0f8ff;
+    }
+
+    .icon {
+      width: 32px;
+      margin-right: 15px;
+    }
+
+    .label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      flex-grow: 1;
+    }
+
+    .value {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #2980b9;
+      display: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .value.show {
+      display: inline;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1><span class="mana">మన</span> <span class="kakinada">Kakinada</span></h1>
+
+  <div class="card">
+    <div class="item" onclick="toggleValue('total')">
+      <img class="icon" src="https://img.icons8.com/fluency/48/group.png" alt="Total">
+      <span class="label">Total Population:</span>
+      <span class="value" id="total">20,92,374</span>
+    </div>
+    <div class="item" onclick="toggleValue('male')">
+      <img class="icon" src="https://img.icons8.com/color/48/male.png" alt="Male">
+      <span class="label">Male Population:</span>
+      <span class="value" id="male">10,42,000</span>
+    </div>
+    <div class="item" onclick="toggleValue('female')">
+      <img class="icon" src="https://img.icons8.com/color/48/female.png" alt="Female">
+      <span class="label">Female Population:</span>
+      <span class="value" id="female">10,50,000</span>
+    </div>
+    <div class="item" onclick="toggleValue('rural')">
+      <img class="icon" src="https://img.icons8.com/color/48/country-side.png" alt="Rural">
+      <span class="label">Rural Population:</span>
+      <span class="value" id="rural">12,74,083</span>
+    </div>
+  </div>
+
+  <script>
+    function toggleValue(id) {
+      const value = document.getElementById(id);
+      value.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>

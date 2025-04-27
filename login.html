@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>మన Kakinada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('file:///C:/Users/91939/Downloads/kakinada.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: 'Noto Sans Telugu', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 300px;
+    }
+
+    .login-container h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .mana {
+      color: orange;
+    }
+
+    .kakinada {
+      color: #005b96;
+    }
+
+    .login-form label {
+      display: block;
+      margin: 10px 0 5px;
+      text-align: left;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-eye {
+      position: absolute;
+      right: 5px;
+      top: 5%;
+      cursor: pointer;
+      user-select: none;
+      font-size: 18px;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #005b96;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-form button:hover {
+      background-color: #003f6b;
+    }
+
+    .register-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .register-link a {
+      color: #005b96;
+      text-decoration: none; 
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1><span class="mana">మన</span> <span class="kakinada">Kakinada</span></h1>
+    <form class="login-form" onsubmit="return validateLogin()">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" name="password" required>
+        <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+    <div class="register-link">
+      Don't have an account? <a href="register.html">Register here</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const passwordField = document.getElementById('password');
+      passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+    }
+
+    function validateLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      if (username === 'sasi' && password === '1234') {
+        alert('Login successful!');
+        return true;
+      } else {
+        alert('Invalid username or password.');
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>

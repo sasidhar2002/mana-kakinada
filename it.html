@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kakinada Industries</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('file:///C:/Users/91939/Downloads/i1.jpg');
+      background-size: cover;
+      color: rgb(166, 126, 126); /* Ensures text is visible on top of background */
+    }
+
+    h1 {
+      text-align: center;
+      color: #e3e7ee;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #e9ecf0;
+      margin-bottom: 15px;
+      cursor: pointer; /* Make the headings clickable */
+    }
+
+    .company {
+      background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px auto;
+      padding: 20px;
+      max-width: 900px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .company:hover {
+      background: #e3f2fd;
+      transform: translateY(-2px);
+    }
+
+    .company h2 {
+      margin: 0;
+      color: #1565c0;
+      font-size: 1.2rem;
+    }
+
+    .details {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      border-top: 1px solid #90caf9;
+    }
+
+    .details p {
+      margin: 4px 0;
+      color: #37474f;
+    }
+
+    .sector {
+      margin-bottom: 40px;
+    }
+
+    .company.sugar {
+      background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      border-left: 6px solid #ffcc80;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin: 12px auto;
+      padding: 16px 20px;
+      max-width: 900px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      position: relative;
+    }
+
+    .company.sugar:hover {
+      background: #fff3e0;
+      transform: translateY(-2px);
+    }
+
+    .company.sugar h2 {
+      margin: 0;
+      color: #e64a19;
+      font-size: 1.2rem;
+    }
+
+    .details.sugar {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #ffcc80;
+    }
+
+    .details.sugar p {
+      margin: 6px 0;
+      color: #5d4037;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📊 Kakinada Industries</h1>
+
+  <!-- Information Technology Section -->
+  <div class="sector">
+    <h2 onclick="toggleSection('it-companies')">💻 Information Technology Sector in Kakinada</h2>
+    <div id="it-companies" style="display: none;"></div> <!-- Initially hidden -->
+  </div>
+
+  <!-- Fertilizer Industry Section -->
+  <div class="sector">
+    <h2 onclick="toggleSection('fertilizer-companies')">🌾 Fertilizer Industry in Kakinada</h2>
+    <div id="fertilizer-companies" style="display: none;"></div> <!-- Initially hidden -->
+  </div>
+
+  <!-- Agro Industry Section -->
+  <div class="sector">
+    <h2 onclick="toggleSection('agro-companies')">🌴 Agro Industry in Kakinada Sector</h2>
+    <div id="agro-companies" style="display: none;"></div> <!-- Initially hidden -->
+  </div>
+
+  <script>
+    // Toggle details function to show/hide company details
+    function toggleDetails(el) {
+      const d = el.querySelector('.details');
+      d.style.display = d.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Toggle visibility of the company section (Information Technology, Fertilizer, Agro)
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Information Technology Data
+    const itData = [
+      ["Cyient Limited", "Kakinada", "Leading global engineering and IT services"],
+      ["Avineon India Pvt Ltd", "Kakinada", "GIS and engineering solutions; IT Park, Auto Nagar"],
+      ["Chandra Creative & Content Solutions Pvt Ltd", "Kakinada", "Software and content solutions"],
+      ["Nyros Technologies", "Kakinada", "Software development and IT services"],
+      ["Primesoft ESI Pvt Ltd", "Kakinada", "IT services and software solutions"],
+      ["3One Technologies", "Kakinada", "Software development"],
+      ["Mythrii Solutions", "Kakinada", "IT and software solutions"],
+      ["Zonup", "Kakinada", "Software company"],
+      ["3gibt", "Kakinada", "Software company"],
+      ["Messisoft", "Kakinada", "Software development"],
+      ["Agumentik Software Pvt Ltd", "Kakinada", "Software and IT services"],
+      ["Krify", "Kakinada", "Software development and IT consulting"],
+      ["Makers Mind Soft Solutions", "Do.No 2-152/2, Junction, opposite Toyota Showroom, Rayudupalem, Kakinada", "Full-stack development, cloud, VR/AR, gaming"],
+      ["Prominere Software Solutions", "Kakinada", "App and web development, digital marketing"],
+      ["Dreamway Software", "Upstairs, Samsung service center, Srinivasa Nilayam, GPT Rd, Mehar Nagar, Kakinada", "Web and mobile development, SEO"],
+      ["Inventinfo Software Solutions", "6, 259, behind Sai Baba Temple, Thimmapuram, Kakinada", "Magento, WordPress, Drupal, cloud services"],
+      ["Lakshmi Global IT Solutions", "Srinivasa Nilayam, Gandhi Nagar, Pratap Nagar, Kakinada", "E-publishing, PHP, Android/iOS development"],
+      ["Rina Solutions", "Rayudupalem, Kakinada", "Healthcare software solutions"],
+      ["AAR Tech Solutions", "Gopal Krishna St, Rama Rao Peta, Kakinada", "Marketing, SEO, website and mobile development"],
+      ["iGreen System Technologies", "4/52-2, Sita Enclave, Rama Reddy Nagar, Near Pratap Nagar Bridge, Kakinada", "Web design, e-commerce, mobile apps"],
+      ["Parardhi Technologies", "IT Hub, near Cyient Ltd, Auto Nagar, Kakinada", "Mobile apps, BI, cybersecurity"],
+      ["Powered IT Software Solutions Pvt Ltd", "Kakinada", "Digital product engineering"],
+      ["VUnify Technology Pvt Ltd", "Kakinada", "Software services"],
+      ["Usom IT Solutions Pvt Ltd", "Kakinada", "IT and software development"],
+      ["Maganti IT Solutions", "Kakinada", "IT services"],
+      ["Inspire Edge", "Kakinada", "IT consulting and software development"],
+      ["Waiwave Technologies", "Kakinada", "Software and IT services"],
+      ["VMR Technologies", "Kakinada", "IT services"],
+      ["Zonup Software", "Kakinada", "Software development"],
+      ["Krify Technologies", "Kakinada", "Software development"],
+      ["Makers Mind Soft Solutions", "Kakinada", "Software and app development"],
+      ["Prominere Software Solutions", "Kakinada", "Software solutions"],
+      ["Inventinfo Software Solutions", "Kakinada", "Software development"],
+      ["Lakshmi Global IT Solutions", "Kakinada", "IT and software solutions"],
+      ["Rina Solutions", "Kakinada", "Healthcare IT solutions"]
+    ];
+
+    // Fertilizer Industry Data
+    const fertilizerData = [
+      ["Coromandel International Ltd", "Multiple units, including Beach Road, Vakalpudi", "NPK Fertilizers, Specialty Nutrients, Organic Fertilizers, Bio-pesticides, Nano Fertilizers"],
+      ["Nagarjuna Fertilizers & Chemicals Ltd", "Nagarjuna Road, RTO Office Road", "Urea, Specialty Fertilizers, Micronutrients, Customized Fertilizers"],
+      ["Futura Technological Services", "Plot No. 6, APIIC, IDA, Ramanayyapeta", "Fertilizers, Acetic Acid, Sulphuric Acid"],
+      ["K.P.R. Fertilizers Ltd.", "24/2, Nallamilli Road, Bikabolu", "Fertilizers, Sulfuric Acids"],
+      ["KPR Fertilizers Limited", "9-4, Tata Nagar, Balabadrampuram", "Urea, Fertilizers"],
+      ["Parry Infrastructure Company", "Within Kakinada SEZ", "Potentially fertilizers for food processing or related agricultural activities"]
+    ];
+
+    // Agro Industry Data
+    const agroData = [
+      ["S Kumar Exports", "Kakinada", "Copra, coir fiber, green coconut, coconut shell, coir dust, coir mats, coconut pith blocks"],
+      ["Qezla Industries", "D No 4-224, Goutminagar, Vakalpudi, Kakinada", "Premier manufacturer/exporter of agro foods including coconut"],
+      ["Mittal Traders", "25-6-35, Ganjamvari Street, Kakinada", "Coconut and coconut products exporter"],
+      ["Shree Jaiambe Coconuts", "70-2-146a, Ramanayapeta, Kakinada", "Coconut exporter"],
+      ["Sri Lakshmi Coconut Traders", "Kakinada", "Fresh coconuts, semi-husked coconuts, coconut products"],
+      ["AVANI BIOVENTURES PRIVATE LIMITED", "Kakinada", "Coconut and related agro products"],
+      ["Other Trusted Coconut Exporters", "Kakinada & nearby", "Including fresh, dried, semi-husked, and value-added coconut products"],
+      ["Sri Venkateswara Rice Industry", "Kakinada", "Rice (various types), major rice exporter"],
+      ["Sirius Overseas Pvt. Ltd.", "Kakinada", "White rice, parboiled rice, broken rice"],
+      ["Sri Tharakarama Export", "Kakinada", "Boiled rice, animal fodder, food grains"],
+      ["Seahawk Impex", "Kakinada", "Rice, cement"],
+      ["Sai Dattatreya Seeta Rama Rice Mill", "Kakinada", "Rice"],
+      ["Agrawal & Co.", "Kakinada", "Basmati rice"],
+      ["Numerous local rice mills", "Kakinada & surrounding areas", "Utilize port for rice exports; several dozen active mills"]
+    ];
+
+    // Function to add company details to a given container
+    function addCompanyDetails(containerId, data) {
+      const container = document.getElementById(containerId);
+      data.forEach(([name, location, products]) => {
+        const companyDiv = document.createElement('div');
+        companyDiv.className = 'company';
+        companyDiv.onclick = () => toggleDetails(companyDiv);
+        companyDiv.innerHTML = `
+          <h2>${name}</h2>
+          <div class="details">
+            <p><strong>Location / Address:</strong> ${location}</p>
+            <p><strong>Key Products:</strong> ${products}</p>
+          </div>
+        `;
+        container.appendChild(companyDiv);
+      });
+    }
+
+    // Add companies to their respective sections
+    addCompanyDetails('it-companies', itData);
+    addCompanyDetails('fertilizer-companies', fertilizerData);
+    addCompanyDetails('agro-companies', agroData);
+  </script>
+
+</body>
+</html>

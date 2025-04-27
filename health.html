@@ -1,0 +1,110 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>మన Kakinada - Hospitals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('file:///C:/Users/91939/Downloads/f.jpg');
+      margin: 20px;
+      text-align: center;
+    }
+
+    #manaTitle {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .mana {
+      color: orange;
+    }
+
+    .kakinada {
+      color: blue;
+    }
+
+    .section {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+    }
+
+    h2 {
+      color: orange;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style-type: decimal;
+      padding-left: 20px;
+      color: #efe7e7;
+      display: none; 
+    }
+
+    li {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <div id="manaTitle">
+    <span class="mana">మన</span> <span class="kakinada">Kakinada</span>
+  </div>
+
+ 
+  <div class="section">
+    <h2 onclick="toggleList('phcList')">Primary Health Centres (PHCs)</h2>
+    <ul id="phcList">
+      <li>Primary Health Centres (PHCs)</li>
+      <li>PHC Nagulapalli</li>
+      <li>PHC Gadimoga</li>
+      <li>PHC A.V. Nagaram (Thondangi Mandal)</li>
+      <li>PHC Chebrolu (Gollaprolu Mandal)</li>
+      <li>PHC Dugguduru (Kajuluru Mandal)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 onclick="toggleList('chcList')">Community Health Centres (CHCs)</h2>
+    <ul id="chcList">
+      <li>CHC Samalkot</li>
+      <li>CHC Pithapuram</li>
+      <li>CHC Prathipadu</li>
+      <li>CHC Pedapudi</li>
+      <li>CHC Thallarevu</li>
+      <li>CHC Jaggampeta</li>
+      <li>CHC Yeleswaram</li>
+      <li>CHC Rowthulapudi</li>
+      <li>CHC Kadiyam</li>
+      <li>CHC Gokavaram</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 onclick="toggleList('privateList')">Private Hospitals in Kakinada Rural</h2>
+    <ul id="privateList">
+      <li>Ayush Dental Care</li>
+      <li>Samudra Health Care Enterprises Ltd.</li>
+      <li>Srikiran Institute of Ophthalmology</li>
+      <li>Mamata Multi Speciality Hospital</li>
+      <li>Kakinada Institute of Oncology Pvt. Ltd.</li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleList(listId) {
+      const list = document.getElementById(listId);
+      if (list.style.display === "none" || list.style.display === "") {
+        list.style.display = "block";
+      } else {
+        list.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

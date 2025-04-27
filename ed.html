@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>మన Kakinada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            background-image: url('file:///C:/Users/91939/Downloads/edu.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: #d7d4d4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 48px;
+        }
+
+        .orange {
+            color: orange;
+        }
+
+        .blue {
+            color: #1736d3;
+        }
+
+        .section {
+            margin-left: 40px;
+            margin-bottom: 40px;
+        }
+
+        .subheading {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: #e8dd5c;
+        }
+
+        .school-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px;
+            text-align: left;
+            line-height: 1.8;
+            display: none;
+        }
+
+        .school-list li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .school-list h4 {
+            color: #efe5e5;
+        }
+
+        .left-align {
+            text-align: left; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1><span class="orange">మన</span> <span class="blue">Kakinada</span></h1>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('govt-schools')">Government Schools</div>
+        <ul class="school-list" id="govt-schools">
+            <li><h4>SAMA HS (EM) JAGANNAIKPUR</h4> - Jagannaickpur, Kakinada (M)-2</li>
+            <li><h4>SAMA PS (EM) MARET STREET</h4> - Maret Street, Kakinada (M)</li>
+            <li><h4>Mahatma Gandhi Municipal Corporation High School</h4> - Gandhi Nagar, Kakinada - 04</li>
+            <li><h4>Municipal Corporation High School</h4> - Sriram Nagar, Kakinada - 03</li>
+            <li><h4>ZPHS Timmapuram</h4> - D.No. 2-116, Timmapuram, Kakinada - 05</li>
+            <li><h4>ZPHS Sarpavaram Junction</h4> - Panasapadu Road, Sarpavaram Junction, Kakinada - 05</li>
+            <li><h4>ZPHS Madhavapatnam</h4> - Panchayat Office Road, Madhavapatnam, Kakinada - 05</li>
+            <li><h4>APSP Quarters School</h4> - APSP Quarters, Kakinada - 05</li>
+            <li><h4>CBM School</h4> - Ramaraopeta, Kakinada - 04</li>
+            <li><h4>Balajicheruvu Junction School</h4> - Balajicheruvu Junction, R R Road, Kakinada - 01</li>
+            <li><h4>Narasanna Nagar School</h4> - Ashok Nagar, Kakinada - 03</li>
+            <li><h4>Ramanayyapeta School</h4> - D.No. 70-1A-5, Ramanayyapeta, Kakinada - 05</li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('private-schools')">Private Schools</div>
+        <ul class="school-list" id="private-schools">
+            <li><h4>Santhi Niketan UPS (EM) Chillangi</h4> - Chillangi</li>
+            <li><h4>Sandhya UPS (EM) Parlovapeta</h4> - Parlovapeta</li>
+            <li><h4>Sanjay Rahul UPS (EM) Katravulapalli</h4> - Katravulapalli</li>
+            <li><h4>Sanskrit Aided PS Podagatlapalli</h4> - Podagatlapalli</li>
+            <li><h4>Santhi Benhur Aided UPS Korlammapeta</h4> - Korlammapeta</li>
+            <li><h4>Santhi EM UP School</h4> - Not specified</li>
+            <li><h4>Santhi Nikethan UPS (EM) Vannepudi</h4> - Vannepudi</li>
+            <li><h4>AARSHA BHARATHI EM SCHOOL</h4> - Not specified</li>
+            <li><h4>ABHILASH SCHOOL EM DAIRY FORM CENTRE KAKINADA</h4> - Dairy Form Centre, Kakinada</li>
+            <li><h4>ADARSA HS (EM) DANAVAIPETA</h4> - Danavaipeta, Kakinada</li>
+            <li><h4>ADARSA HS (EM) KOTHAPALLI</h4> - Kothapalli, Kakinada</li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('govt-junior-colleges')">Government Junior Colleges</div>
+        <ul class="school-list" id="govt-junior-colleges">
+            <li><h4>Govt. Junior College (Boys)</h4> - Opp. Vinayaka Temple, Jagannaickpur, Kakinada - 02</li>
+            <li><h4>Govt. Junior College (Co-ed)</h4> - Nageswararao Street, Ramaraopeta, Kakinada - 04</li>
+            <li><h4>Govt. Junior College</h4> - Dr. PVN Raju Vidya Pranganam, Samalkot Road, Indrapalem, Kakinada - 06</li>
+            <li><h4>Govt. Junior College</h4> - Blajicheruvu Center, R R Road, Kakinada - 01</li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('private-junior-colleges')">Private Junior Colleges</div>
+        <ul class="school-list" id="private-junior-colleges">
+            <li><h4>Aditya Junior College</h4> - D.NO: 2-16-17, Aditya Building, Sri Nagar, Kakinada - 03</li>
+            <li><h4>Sri Chaitanya Junior College</h4> - Lakshmi Nagar, Godari Gunta, Kakinada - 03</li>
+            <li><h4>Pragati Junior College</h4> - Venkat Nagar, Kakinada - 03</li>
+            <li><h4>Narayana Junior College</h4> - Eswar Nagar, APSP, Kakinada - 05</li>
+            <li><h4>Others (multiple campuses)</h4> - See for full list and contacts</li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('govt-degree-colleges')">Government Degree Colleges</div>
+        <ul class="school-list" id="govt-degree-colleges">
+            <li><h4>P.R. Government Degree College</h4> - Kakinada</li>
+            <li><h4>Adikavi Nannaya University (MSN Campus)</h4> - Kakinada</li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('private-degree-colleges')">Private Degree Colleges</div>
+        <ul class="school-list" id="private-degree-colleges">
+            <li><h4>VSL Degree College</h4> - Not specified</li>
+            <li><h4>M.S.N. Degree College</h4> - Not specified</li>
+            <li><h4>Aditya Degree College</h4> - Near Aditya Academy, Sri Nagar, Kakinada - 03</li>
+            <li><h4>Srinivasa Degree College</h4> - D.No: 69-8-2, Srinivasa ITI Street, Pitapuram Road, Sarpavaram Junction, Kakinada - 05</li>
+            <li><h4>Pydha Degree College</h4> - D.No. 27-4-26, Temple Street, Kakinada - 01</li>
+            <li><h4>Eswar Degree College</h4> - Eswar Nagar, APSP, Kakinada - 05</li>
+            <li><h4>Ramanayyapeta Degree College</h4> - D.No: 4-15, Ramanayyapeta, Kakinada - 05</li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('govt-engineering-colleges')">Government Engineering Colleges</div>
+        <ul class="school-list" id="govt-engineering-colleges">
+            <li><h4>Jawaharlal Nehru Technological University (JNTU)</h4> - Pithapuram Road, Kakinada - 03</li>
+            <li><h4>University College of Engineering (JNTU)</h4> - Vidyut Nagar, Kakinada - 04</li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="subheading" onclick="toggleList('private-engineering-colleges')">Private Engineering Colleges</div>
+        <ul class="school-list" id="private-engineering-colleges">
+            <li><h4>Ideal Institute of Technology</h4> - Samalkot Road, Madhavapatnam, Kakinada - 05</li>
+            <li><h4>Adarsh College of Engineering</h4> - Chebrolu (V), Gollaprolu (M), E.G. Dist. Pin-533449</li>
+            <li><h4>Chaitanya Institute of Science and Technology</h4> - Yanam Road, Patavala, Kakinada-533461</li>
+            <li><h4>Regency Institute of Technology</h4> - NH-214, Metlapalem, G.Vemavaram (V), Tallarevu (M), Kakinada, E.G. Dist.-533 461</li>
+            <li><h4>Raja Ratna Kakinada Institute Of Technological Sciences</h4> - Yanam Rd, Corangi, Kakinada-533416</li>
+            <li><h4>Pragati Engineering College</h4> - 1-378, ADB Road, Surampalem, Peddapuram-533437</li>
+            <li><h4>Kakinada Institute of Engineering and Technology</h4> - Surampalem, Peddapuram-533437</li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleList(id) {
+            var list = document.getElementById(id);
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block";
+            } else {
+                list.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
