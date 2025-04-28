@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="te">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>మన Kakinada</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu&display=swap" rel="stylesheet">
   <style>
     body {
-      background-image: url('kakinada.jpg');
+      background-image: url('file:///C:/Users/91939/Downloads/kakinada.jpg'); /* Replace with a public Kakinada image */
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -20,33 +20,34 @@
     }
 
     .login-container {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.95);
       padding: 30px;
-      border-radius: 10px;
+      border-radius: 12px;
       text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      width: 320px;
     }
 
     .login-container h1 {
       margin-bottom: 20px;
-      font-size: 28px;
+      font-size: 30px;
     }
 
     .mana { color: orange; }
     .kakinada { color: #005b96; }
 
-    .login-form label {
+    label {
       display: block;
-      margin: 10px 0 5px;
+      margin-top: 12px;
       text-align: left;
+      font-weight: bold;
     }
 
-    .login-form input {
+    input {
       width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      border-radius: 5px;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
       border: 1px solid #ccc;
     }
 
@@ -56,30 +57,33 @@
 
     .toggle-eye {
       position: absolute;
-      right: 5px;
-      top: 5%;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
       cursor: pointer;
       user-select: none;
-      font-size: 18px;
+      font-size: 20px;
     }
 
-    .login-form button {
+    button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
+      margin-top: 20px;
       background-color: #005b96;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 16px;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
-    .login-form button:hover {
+    button:hover {
       background-color: #003f6b;
     }
 
     .register-link, .forgot-link {
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 14px;
     }
 
@@ -98,193 +102,187 @@
       z-index: 1000;
       left: 0; top: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.6);
       align-items: center;
       justify-content: center;
     }
 
     .modal-content {
       background: white;
-      padding: 20px;
-      border-radius: 8px;
+      padding: 24px;
+      border-radius: 10px;
       width: 300px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
       position: relative;
-    }
-
-    .modal h2 {
-      margin-top: 0;
     }
 
     .close {
       position: absolute;
-      top: 5px;
-      right: 10px;
-      font-size: 20px;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
       cursor: pointer;
-    }
-
-    .modal-content label,
-    .modal-content input,
-    .modal-content button {
-      display: block;
-      width: 100%;
-      margin-top: 10px;
     }
 
     .otp-section {
       display: none;
-    }
-
-    .toggle-container {
-      margin-top: 20px;
+      margin-top: 10px;
     }
   </style>
 </head>
+
 <body>
   <div class="login-container">
     <h1><span class="mana">మన</span> <span class="kakinada">Kakinada</span></h1>
 
     <!-- Sign In Form -->
-    <div id="signInForm">
-      <form class="login-form" onsubmit="return validateLogin()">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
+    <form id="signInForm" class="login-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" required>
 
-        <label for="password">Password</label>
-        <div class="password-wrapper">
-          <input type="password" id="password" name="password" required>
-          <span class="toggle-eye" onclick="togglePassword()">👁️</span>
-        </div>
-
-        <div class="forgot-link">
-          <a href="#" onclick="openModal('forgotModal')">Forgot Password?</a>
-        </div>
-
-        <button type="submit">Login</button>
-      </form>
-
-      <div class="toggle-container">
-        Don't have an account? <a href="#" onclick="toggleForms()">Register here</a>
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" required>
+        <span class="toggle-eye" id="togglePassword">👁️</span>
       </div>
-    </div>
+
+      <div class="forgot-link">
+        <a href="#" id="openForgot">Forgot Password?</a>
+      </div>
+
+      <button type="submit">Login</button>
+
+      <div class="register-link">
+        Don't have an account? <a href="#" id="showRegister">Register here</a>
+      </div>
+    </form>
 
     <!-- Sign Up Form -->
-    <div id="signUpForm" style="display: none;">
-      <form class="login-form">
-        <label for="firstName">First Name</label>
-        <input type="text" id="firstName" placeholder="Enter first name">
+    <form id="signUpForm" class="login-form" style="display: none;">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" required>
 
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" placeholder="Enter last name">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" required>
 
-        <label for="mobile">Mobile Number</label>
-        <input type="text" id="mobile" placeholder="Enter 10-digit mobile number">
-        <button type="button" onclick="sendOTP()">Send OTP</button>
+      <label for="mobile">Mobile Number</label>
+      <input type="text" id="mobile" required>
+      <button type="button" id="sendOTP">Send OTP</button>
 
-        <div class="otp-section" id="otpSection">
-          <label for="otpInput">Enter OTP</label>
-          <input type="text" id="otpInput" placeholder="Enter OTP">
-          <button type="button" onclick="verifyOTP()">Verify OTP</button>
-          <button type="button" onclick="resendOTP()">Resend OTP</button>
-        </div>
-
-        <label for="regPassword">Password</label>
-        <input type="password" id="regPassword" placeholder="Enter password">
-
-        <button type="button" onclick="alert('User registered successfully (simulated)')">Sign Up</button>
-      </form>
-
-      <div class="toggle-container">
-        Already have an account? <a href="#" onclick="toggleForms()">Login here</a>
+      <div class="otp-section" id="otpSection">
+        <label for="otpInput">Enter OTP</label>
+        <input type="text" id="otpInput">
+        <button type="button" id="verifyOTP">Verify OTP</button>
+        <button type="button" id="resendOTP">Resend OTP</button>
       </div>
-    </div>
+
+      <label for="regPassword">Password</label>
+      <input type="password" id="regPassword" required>
+
+      <button type="button" id="registerUser">Sign Up</button>
+
+      <div class="register-link">
+        Already have an account? <a href="#" id="showLogin">Login here</a>
+      </div>
+    </form>
   </div>
 
   <!-- Forgot Password Modal -->
   <div class="modal" id="forgotModal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal('forgotModal')">&times;</span>
+      <span class="close" id="closeModal">&times;</span>
       <h2>Reset Password</h2>
       <label for="resetInput">Email or Username</label>
-      <input type="text" id="resetInput" placeholder="Enter your email or username">
+      <input type="text" id="resetInput">
       <button onclick="alert('Reset link sent (simulation)')">Send Reset Link</button>
     </div>
   </div>
 
   <script>
-    function togglePassword() {
-      const passwordField = document.getElementById('password');
-      passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
-    }
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+    const signInForm = document.getElementById('signInForm');
+    const signUpForm = document.getElementById('signUpForm');
+    const openForgot = document.getElementById('openForgot');
+    const forgotModal = document.getElementById('forgotModal');
+    const closeModal = document.getElementById('closeModal');
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
 
-    function validateLogin() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      if (username === 'sasi' && password === '1234') {
+    let generatedOTP = '';
+
+    togglePassword.addEventListener('click', () => {
+      password.type = password.type === 'password' ? 'text' : 'password';
+    });
+
+    signInForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const userPass = document.getElementById('password').value.trim();
+
+      if (username === 'sasi' && userPass === '1234') {
         alert('Login successful!');
-        return true;
+        window.location.href = 'ed.html'; // Redirect to dashboard
       } else {
         alert('Invalid username or password.');
-        return false;
       }
-    }
+    });
 
-    function toggleForms() {
-      const signInForm = document.getElementById('signInForm');
-      const signUpForm = document.getElementById('signUpForm');
-      if (signInForm.style.display === 'none') {
-        signInForm.style.display = 'block';
-        signUpForm.style.display = 'none';
-      } else {
-        signInForm.style.display = 'none';
-        signUpForm.style.display = 'block';
-      }
-    }
-
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (event.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
-    };
-
-    // OTP Logic (simulated)
-    let generatedOTP = "";
-
-    function sendOTP() {
-      const mobile = document.getElementById('mobile').value;
+    document.getElementById('sendOTP').addEventListener('click', () => {
+      const mobile = document.getElementById('mobile').value.trim();
       if (mobile.length === 10 && /^\d+$/.test(mobile)) {
         generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
-        alert("OTP sent to mobile: " + generatedOTP);
+        alert('OTP Sent: ' + generatedOTP);
         document.getElementById('otpSection').style.display = 'block';
       } else {
-        alert("Please enter a valid 10-digit mobile number.");
+        alert('Please enter a valid 10-digit mobile number.');
       }
-    }
+    });
 
-    function verifyOTP() {
-      const userOTP = document.getElementById('otpInput').value;
-      if (userOTP === generatedOTP) {
-        alert("OTP Verified Successfully!");
+    document.getElementById('verifyOTP').addEventListener('click', () => {
+      const otpInput = document.getElementById('otpInput').value.trim();
+      if (otpInput === generatedOTP) {
+        alert('OTP Verified!');
       } else {
-        alert("Incorrect OTP. Try again.");
+        alert('Incorrect OTP. Try again.');
       }
-    }
+    });
 
-    function resendOTP() {
-      sendOTP();
-    }
+    document.getElementById('resendOTP').addEventListener('click', () => {
+      document.getElementById('sendOTP').click();
+    });
+
+    document.getElementById('registerUser').addEventListener('click', () => {
+      alert('Registration successful!');
+      window.location.href = 'ed.html';
+    });
+
+    openForgot.addEventListener('click', (e) => {
+      e.preventDefault();
+      forgotModal.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+      forgotModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === forgotModal) {
+        forgotModal.style.display = 'none';
+      }
+    });
+
+    showRegister.addEventListener('click', (e) => {
+      e.preventDefault();
+      signInForm.style.display = 'none';
+      signUpForm.style.display = 'block';
+    });
+
+    showLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      signUpForm.style.display = 'none';
+      signInForm.style.display = 'block';
+    });
   </script>
 </body>
 </html>
