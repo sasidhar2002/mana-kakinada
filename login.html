@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="te">
+<html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu&display=swap" rel="stylesheet">
   <style>
     body {
-      background-image: url('file:///C:/Users/91939/Downloads/kakinada.jpg'); /* Use online image for deployment */
+      background-image: url('kakinada.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -135,60 +135,69 @@
     .otp-section {
       display: none;
     }
+
+    .toggle-container {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="login-container">
     <h1><span class="mana">మన</span> <span class="kakinada">Kakinada</span></h1>
-    <form class="login-form" onsubmit="return validateLogin()">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required>
 
-      <label for="password">Password</label>
-      <div class="password-wrapper">
-        <input type="password" id="password" name="password" required>
-        <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+    <!-- Sign In Form -->
+    <div id="signInForm">
+      <form class="login-form" onsubmit="return validateLogin()">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" required>
+          <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+        </div>
+
+        <div class="forgot-link">
+          <a href="#" onclick="openModal('forgotModal')">Forgot Password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <div class="toggle-container">
+        Don't have an account? <a href="#" onclick="toggleForms()">Register here</a>
       </div>
-
-      <div class="forgot-link">
-        <a href="#" onclick="openModal('forgotModal')">Forgot Password?</a>
-      </div>
-
-      <button type="submit">Login</button>
-    </form>
-
-    <div class="register-link">
-      Don't have an account? <a href="#" onclick="openModal('registerModal')">Register here</a>
     </div>
-  </div>
 
-  <!-- Register Modal -->
-  <div class="modal" id="registerModal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('registerModal')">&times;</span>
-      <h2>Register</h2>
+    <!-- Sign Up Form -->
+    <div id="signUpForm" style="display: none;">
+      <form class="login-form">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" placeholder="Enter first name">
 
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" placeholder="Enter first name">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" placeholder="Enter last name">
 
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" placeholder="Enter last name">
+        <label for="mobile">Mobile Number</label>
+        <input type="text" id="mobile" placeholder="Enter 10-digit mobile number">
+        <button type="button" onclick="sendOTP()">Send OTP</button>
 
-      <label for="mobile">Mobile Number</label>
-      <input type="text" id="mobile" placeholder="Enter 10-digit mobile number">
-      <button type="button" onclick="sendOTP()">Send OTP</button>
+        <div class="otp-section" id="otpSection">
+          <label for="otpInput">Enter OTP</label>
+          <input type="text" id="otpInput" placeholder="Enter OTP">
+          <button type="button" onclick="verifyOTP()">Verify OTP</button>
+          <button type="button" onclick="resendOTP()">Resend OTP</button>
+        </div>
 
-      <div class="otp-section" id="otpSection">
-        <label for="otpInput">Enter OTP</label>
-        <input type="text" id="otpInput" placeholder="Enter OTP">
-        <button type="button" onclick="verifyOTP()">Verify OTP</button>
-        <button type="button" onclick="resendOTP()">Resend OTP</button>
+        <label for="regPassword">Password</label>
+        <input type="password" id="regPassword" placeholder="Enter password">
+
+        <button type="button" onclick="alert('User registered successfully (simulated)')">Sign Up</button>
+      </form>
+
+      <div class="toggle-container">
+        Already have an account? <a href="#" onclick="toggleForms()">Login here</a>
       </div>
-
-      <label for="regPassword">Password</label>
-      <input type="password" id="regPassword" placeholder="Enter password">
-
-      <button type="button" onclick="alert('User registered successfully (simulated)')">Sign Up</button>
     </div>
   </div>
 
@@ -218,6 +227,18 @@
       } else {
         alert('Invalid username or password.');
         return false;
+      }
+    }
+
+    function toggleForms() {
+      const signInForm = document.getElementById('signInForm');
+      const signUpForm = document.getElementById('signUpForm');
+      if (signInForm.style.display === 'none') {
+        signInForm.style.display = 'block';
+        signUpForm.style.display = 'none';
+      } else {
+        signInForm.style.display = 'none';
+        signUpForm.style.display = 'block';
       }
     }
 
@@ -262,7 +283,7 @@
     }
 
     function resendOTP() {
-      sendOTP(); // Call same OTP function again
+      sendOTP();
     }
   </script>
 </body>
