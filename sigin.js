@@ -4,7 +4,7 @@ pfunction validateLogin() {
   
     if (username === 'sasi' && password === '1234') {
       alert('Login successful!');
-      window.location.href = "Divisios.html"; // ✅ Redirects to home.html
+      window.location.href = "Education.html"; // ✅ Redirects to home.html
       return false; // prevent form submission since we're using JS redirect
     } else {
       alert('Invalid username or password.');
